@@ -1,6 +1,6 @@
 import requests
 
-url = "https://tokyo-haneda.com/parking/"
+url = "https://www.aeif.or.jp/haneda/"
 
 headers = {
     "User-Agent": "Mozilla/5.0"
@@ -9,4 +9,4 @@ headers = {
 response = requests.get(url, headers=headers)
 
 print("Status:", response.status_code)
-print("Length:", len(response.text))
+print(response.text[:1000])

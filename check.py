@@ -1,6 +1,6 @@
 import requests
 
-url = "https://parking.haneda-airport.jp/"
+url = "url = "https://tokyo-haneda.com/parking/"
 
 headers = {
     "User-Agent": "Mozilla/5.0"

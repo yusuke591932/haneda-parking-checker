@@ -1,12 +1,28 @@
 import requests
 
-url = "https://www.aeif.or.jp/haneda/"
+URL = "https://hnd-rsv.aeif.or.jp/airport2/app/calendar"
 
-headers = {
-    "User-Agent": "Mozilla/5.0"
-}
+TARGET_DATES = [
+    "2026/03/14",
+    "2026/03/15",
+    "2026/03/16",
+    "2026/03/17"
+]
 
-response = requests.get(url, headers=headers)
+def check_date(date):
+    payload = {
+        "date": date,
+        "area": "0",
+        "handicapped": "0"
+    }
 
-print("Status:", response.status_code)
-print(response.text[:1000])
+    headers = {
+        "Content-Type": "application/json"
+    }
+
+    response = requests.post(URL, json=payload, headers=headers)
+    return response.json()
+
+for date in TARGET_DATES:
+    result = check_date(date)
+    print(date, result)
